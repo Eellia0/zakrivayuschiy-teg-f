@@ -4,3 +4,52 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+    --font-weight-title: 700;
+    --font-weight: 400;
+    --accent-color: black;
+    --background-image: 
+    repeating-linear-gradient(#d3d3d3 0px 2px, transparent 2px 4px),
+    repeating-linear-gradient( 90deg, #d3d3d3 0px 2px, transparent 2px 4px),
+    linear-gradient( #e7e7e7 0.01%, #1a1a1a);
+    --background-color: rgba(255, 255, 255, 1);
+    --button-change-color: var(--background-color);
+}
+
+:root.theme-dark {
+    --font-weight-title: 785;
+    --font-weight: 465;
+    --accent-color: rgba(0, 204, 20, 1);
+    --background-image: 
+    repeating-linear-gradient(black 0px 2px, transparent 2px 4px),
+    repeating-linear-gradient( 90deg, black 0px 2px, transparent 2px 4px),
+    linear-gradient( rgba(0, 127, 12, 1), rgba(0, 67, 6, 1));
+    --background-color: rgba(0, 0, 0, 1);
+    --button-change-color: var(--accent-color);
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        --font-weight-title: 700;
+        --font-weight: 400;
+        --accent-color: black;
+        --background-image: 
+        repeating-linear-gradient(#d3d3d3 0px 2px, transparent 2px 4px),
+        repeating-linear-gradient( 90deg, #d3d3d3 0px 2px, transparent 2px 4px),
+        linear-gradient( #e7e7e7 0.01%, #1a1a1a);
+        --background-color: rgba(255, 255, 255, 1);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --font-weight-title: 785;
+        --font-weight: 465;
+        --accent-color: rgba(0, 204, 20, 1);
+        --background-image: 
+        repeating-linear-gradient(black 0px 2px, transparent 2px 4px),
+        repeating-linear-gradient( 90deg, black 0px 2px, transparent 2px 4px),
+        linear-gradient( rgba(0, 127, 12, 1), rgba(0, 67, 6, 1));
+        --background-color: rgba(0, 0, 0, 1);
+    }
+}
