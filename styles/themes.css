@@ -14,6 +14,7 @@
     linear-gradient( #e7e7e7 0.01%, #1a1a1a);
     --background-color: rgba(255, 255, 255, 1);
     --button-change-color: var(--background-color);
+    --floppy-color: var(--accent-color);
 }
 
 :root.theme-dark {
@@ -26,6 +27,7 @@
     linear-gradient( rgba(0, 127, 12, 1), rgba(0, 67, 6, 1));
     --background-color: rgba(0, 0, 0, 1);
     --button-change-color: var(--accent-color);
+    --floppy-color: var(--accent-color);
 }
 
 @media (prefers-color-scheme: light) {
