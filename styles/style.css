@@ -24,7 +24,7 @@
   align-items: center;
   background-attachment: fixed;
   font-family: var(--accent-font);
-  /* max-height: 7443px; */
+  position: relative;
 }
 
 .main {
@@ -43,7 +43,7 @@
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
   margin-block-start: 100px;
-  max-width: 696px;
+  max-width: 700px;
   gap: 25px;
   margin-bottom: 100px;
 }
@@ -59,7 +59,7 @@
   font-size: 49px;
 }
 
-h2 {
+.header-title {
   font-size: var(--accent-font-size);
   text-transform: uppercase;
 }
@@ -71,6 +71,7 @@ h2 {
   font-size: var(--accent-font-size);
   line-height: 14px;
   padding: 0;
+  cursor: pointer;
 }
 
 .theme-menu__list {
@@ -94,22 +95,6 @@ h2 {
   top: 0;
   inset-inline-start: -20px;
   animation: waiting 1s ease-in-out reverse infinite;
-}
-
-/* Пришлось использовать 3 кадра, потому что в другом случае анимация дергается, единсвенная причина, котораую я узнал, это абсолютные координаты */
-
-@keyframes  waiting {
-  0% {
-    inset-inline-start: -20px;
-  }
-
-  50% {
-    inset-inline-start: -16px;
-  }
-
-  100% {
-    inset-inline-start: -20px;
-  }
 }
 
 .theme-menu__button:disabled {
@@ -143,7 +128,7 @@ h2 {
 
 .post {
   position: relative;
-  max-width: 696px;
+  max-width: 700px;
   background-color: var(--background-color);
   color: var(--accent-color);
   font-family: var(--main-font);
@@ -160,21 +145,45 @@ h2 {
   align-self: self-start;
 }
 
-img {
-  margin-top: -1px;                             /*  Я не знаю, как этого избежать, пришлось делать через отрицательный margin чтобы все блоки стояли правильно */
+.img {                       
   display: block;
   object-fit: cover;
   width: 100%;
   height: 100%;
- 
 }
 
-picture {
+.img2 {
+  filter:grayscale(50%);
+}
+.img3{ 
+  filter: saturate(300%);
+}
+.img4 {
+  filter: hue-rotate(30deg);
+}
+.img5 {
+  filter: invert(100%);
+}
+.img6 {
+  filter:sepia(100%);
+}
+.img7 {
+  filter: blur(5px);
+}
+
+.figure {
   display: block;
   object-fit: cover;
   position: relative;
   border-top: 2px solid var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
+  width: 100%;
+  height: 100vh;
+  max-height: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .label {
@@ -223,6 +232,9 @@ picture {
   align-items: center;
   justify-content: center;
   background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .like {
@@ -250,12 +262,6 @@ picture {
   outline: none;
   box-shadow: 2px 2px 0 var(--accent-color);
   transition: box-shadow 0.3s;
-}
-
-.card__like-button {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
 }
 
 .card__like-button::before {
@@ -294,8 +300,12 @@ picture {
 }
 
 .footer-text {
-  margin-bottom: 15px;
+  font-size: var(--accent-font-size);
   color: var(--accent-color);
+  margin-bottom: 15px;
+  line-height: 12.6px;
+  white-space: nowrap;
+  font-weight: 400;
 }
 
 .button__text {
@@ -310,10 +320,14 @@ picture {
 .footer-button {
   background: var(--background-color);
   border: 2px solid var(--accent-color);
-  min-width: 306px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: clamp(1.188rem, 1.606rem + -1.784vw, 0rem);
+  padding-right: clamp(1.188rem, 1.606rem + -1.784vw, 0rem);
 }
 
 .footer-button::before {
@@ -332,7 +346,7 @@ picture {
   transform: translateX(0);
 }
 
-.footer-button:hover > .button__text > .footer-text {
+.footer-button:hover > .footer-text {
   transition: 0.5s;
   z-index: 1;
   color: var(--background-color);
@@ -350,7 +364,7 @@ picture {
   fill: var(--accent-color);
 }
 
-button {
+.button {
   cursor: pointer;
 }
 
@@ -395,25 +409,35 @@ path.sparks {
   transition-delay: 0.05s;
 }
 
-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.5);
-} 
+.dialog:not([open]) {
+  display: none;
+}
 
-dialog[open] {
-  position: absolute;
+.dialog {
   display: flex;
-  bottom: 0;
-  left: auto;
-  right: auto;
+}
+
+.dialog {
+  position: fixed;
+  margin-bottom: clamp(14.75rem, 11.493rem + 13.897vw, 24rem);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 341px;
   height: 191px;
-  z-index: 2;
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
 }
+
+.dialog-button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.5);
+} 
 
 .dialog-content {
   display: flex;
@@ -447,11 +471,36 @@ dialog[open] {
   margin-top: 30px;
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
+  overflow: hidden;
+  position: relative;
 }
 
+.dialog-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 257px;
+  height: 38px;
+  transition: 0.5s ease-in-out;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+}
 
+.dialog-button:hover::before {
+  transform: translateX(0);
+}
 
+.dialog-button:hover > .button__text {
+  transition: 0.5s;
+  color: var(--background-color);
+  background-blend-mode: difference;
+}
 
+.dialog-button > .button__text {
+  transition: 0.5s;
+  color: var(--accent-color);
+}
 
 
 /* АНИМАЦИЯ НАЧАЛО */
@@ -461,29 +510,10 @@ dialog[open] {
   fill: red;
 }
 
-@keyframes like { 
-  from {
-    fill: var(--background-color);
-  }
-
-  to {
-    fill: red;
-  }
-}
-
 .like-icon.is-liked .main-body {
   fill: red;
   animation: like2 0.3s ease;
   animation-delay: 0.06s;
-}
-
-@keyframes like2 {
-  from {
-    fill: var(--background-color);
-  }
-  to {
-    fill: red;
-  }
 }
 
 .like-icon.is-liked .contour {
@@ -492,51 +522,14 @@ dialog[open] {
   animation-delay: 0.06s;
 }
 
-@keyframes like3 {
-  from {
-    fill: var(--accent-color);
-  }
-  to {
-    fill: red;
-  }
-}
-
 .like-icon.is-liked {
   animation: scale 0.3s ease-in;
   animation-delay: 0.1s;
 }
 
-@keyframes scale {
-  from {
-    scale: 1;
-  }
-
-  50% {
-    scale: 1.5;
-  }
-
-  to {
-  scale: 1;
-  }
-}
-
 .like-icon.is-liked path.sparks {
   animation: opacity 0.3s ease-in;
   animation-delay: 0.3s;
-}
-
-@keyframes opacity {
-  from {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-    
-  to {
-    opacity: 0;
-  }
 }
 
 /* АНИМАЦИЯ КОНЕЦ */
@@ -547,51 +540,38 @@ dialog[open] {
     font-size: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
   }
   
-  h2 {
+  .header-title {
     font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
     line-height: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
   }
 
   .button__text {
-    display: flex;
     flex-direction: row;
     justify-content: center;
   }
 
-  picture {
-    width: 100%;
-    height: 100vh;
-    max-height: clamp(23.438rem, 16.285rem + 30.516vw, 43.75rem);
-  }
-
-  img {
-    width: 100%;
-  }
-
-  .ico {
-    margin: 0;
-  }
-
   .footer {
     width: 100%;
-    max-width: 696px;
-    margin-bottom: 103px;
+    max-width: 700px;
+    margin-bottom: 100px;
+  }
+
+  .footer-text {
+    max-width: 266px;
+    margin: 0;
   }
 
   .footer-button {
     width: 100%;
-    max-width: 335px;
+    max-width: 339px;
     height: 55px;
-  }
-  
-  .footer-text {
-    margin: 0;
-    
+    flex-direction: row;
+    align-items: center;
   }
 
   .ico {
-    width: 21px;
-    height: 21px;
-    margin-right: 8px;
+    margin: 0 8px 0 0;
+    width: clamp(1.313rem, 1.904rem + -0.657vw, 1.75rem);
+    height: clamp(1.313rem, 1.904rem + -0.657vw, 1.75rem);
   }
 }

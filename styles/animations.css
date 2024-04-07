@@ -12,3 +12,77 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* Я не знаю, что не так с анимацией, 
+я делал всё по теории из практикума, я не вижу особой разницы с макетом, 
+да там появляется черная заливка, но она же тоже должна быть по ховеру, разве нет? */
+
+@keyframes  waiting {
+    0% {
+      inset-inline-start: -20px;
+    }
+  
+    50% {
+      inset-inline-start: -16px;
+    }
+  
+    100% {
+      inset-inline-start: -20px;
+    }
+  }
+  
+@keyframes like { 
+    from {
+      fill: var(--background-color);
+    }
+  
+    to {
+      fill: red;
+    }
+  }
+
+@keyframes like2 {
+    from {
+      fill: var(--background-color);
+    }
+    to {
+      fill: red;
+    }
+  }
+
+@keyframes like3 {
+    from {
+      fill: var(--accent-color);
+    }
+    to {
+      fill: red;
+    }
+  }
+
+@keyframes scale {
+    from {
+      scale: 1;
+    }
+  
+    50% {
+      scale: 1.5;
+    }
+  
+    to {
+    scale: 1;
+    }
+  }
+
+@keyframes opacity {
+    from {
+      opacity: 0;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+      
+    to {
+      opacity: 0;
+    }
+  }

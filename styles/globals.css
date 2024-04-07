@@ -37,6 +37,12 @@ input {
   font-size: inherit;
 }
 
+/* так пришлось сделать, чтобы отключить таблицу стилей агента пользователя */
+button {
+  padding-block: 0;
+  padding-inline: 0;
+}
+
 ul,
 ol {
   list-style: none;
