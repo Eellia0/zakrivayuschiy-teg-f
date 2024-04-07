@@ -48,7 +48,7 @@
   margin-bottom: 100px;
 }
 
-.logo-group{
+.logo-group {
   display: grid;
   justify-items: center;
   gap: 20px;
@@ -155,7 +155,7 @@
 .img2 {
   filter:grayscale(50%);
 }
-.img3{ 
+.img3 { 
   filter: saturate(300%);
 }
 .img4 {
@@ -364,11 +364,7 @@
   fill: var(--accent-color);
 }
 
-.button {
-  cursor: pointer;
-}
-
-.heart path.main-body{
+.heart path.main-body {
   fill: var(--background-color);
   transition: 0.3s;
 }
@@ -421,7 +417,6 @@ path.sparks {
   position: fixed;
   margin-bottom: clamp(14.75rem, 11.493rem + 13.897vw, 24rem);
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 341px;
   height: 191px;
